@@ -1,4 +1,37 @@
 'use strict';
+const _ = require('underscore'),
+    request = require('request');
+var cardContents,
+    url = 'http://www.cnn.com/data/ocs/section/index.html:homepage1-zone-1.json',
+    results = [];
+
+
+request({url: url, json: true}, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+        var containerArray = body.zoneContents[1].containerContents;
+
+        cardContents = _.map(containerArray, function (containerObj) {
+            return containerObj.cardContents;
+        });
+
+        _.each(cardContents, function (card) {
+            results.push({
+                url: `http://cnn.com${card.url}`,
+                headline: card.headlineText[0],
+                imageUrl: card.media.elementContents.imageUrl || '',
+                byLine: card.auxiliaryText || 'by CNN'
+            });
+        });
+
+        results.forEach(function (element) {
+            console.log(JSON.stringify(element));
+            // console.log('=============================================================================');
+        });
+
+        //return JSON.stringify(results);
+    }
+});
+
 
 /*
  * ## Task 1 (of 2)

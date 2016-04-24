@@ -1,11 +1,30 @@
 {
   "name": "interview-backend-node",
-  "version": "0.1.0",
-  "description": "Interview - Backend Node",
-  "scripts": {},
-  "engines": {
-    "node": "5.8.0"
+  "version": "1.0.0",
+  "description": "Fork this project and submit a pull request when you are complete.",
+  "main": "main.js",
+  "dependencies": {
+    "request": "^2.72.0",
+    "underscore": "^1.8.3"
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0"
+  },
+  "scripts": {
+    "test": "eslint -c .eslintrc *.js",
+    "start": "node main.js"
+  },
+  "engines": {
+    "node": "5.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leisenstein/interview-backend-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leisenstein/interview-backend-node/issues"
+  },
+  "homepage": "https://github.com/leisenstein/interview-backend-node#readme"
 }
